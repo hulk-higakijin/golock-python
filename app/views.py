@@ -15,10 +15,10 @@ def index(request):
   }
   return render(request, 'app/index.html', params)
 
-class NewPost(LoginRequiredMixin, View):
+class Fly(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
     form = PostForm(request.POST or None)
-    return render(request, 'app/new.html', {'form': form})
+    return render(request, 'app/fly.html', {'form': form})
 
   def post(self, request, *args, **kwargs):
     form = PostForm(request.POST or None)
@@ -32,18 +32,5 @@ class NewPost(LoginRequiredMixin, View):
       post_data.save()
       return redirect('index')
 
-    return render(request, 'app/create.html', {'form': form})
+    return render(request, 'app/fly.html', {'form': form})
 
-def update(request,pk):
-  post = get_object_or_404(Post, pk=pk)
-  form = PostForm(request.POST or None, instance=post)
-
-  if request.method == 'POST' and form.is_valid():
-    form.save()
-    return redirect('index')
-  
-  context = {
-    'form': form
-  }
-
-  return render(request, 'app/update.html', context)
