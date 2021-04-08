@@ -15,10 +15,10 @@ def index(request):
   }
   return render(request, 'app/index.html', params)
 
-class CreatePost(LoginRequiredMixin, View):
+class NewPost(LoginRequiredMixin, View):
   def get(self, request, *args, **kwargs):
     form = PostForm(request.POST or None)
-    return render(request, 'app/create.html', {'form': form})
+    return render(request, 'app/new.html', {'form': form})
 
   def post(self, request, *args, **kwargs):
     form = PostForm(request.POST or None)
@@ -32,5 +32,5 @@ class CreatePost(LoginRequiredMixin, View):
       post_data.save()
       return redirect('index')
 
-    return render(request, 'app/create.html', {'form': form})
+    return render(request, 'app/new.html', {'form': form})
 
