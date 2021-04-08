@@ -25,14 +25,12 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'index' %}">Home</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'fly' %}">Create</a>
-          </li>
+          
         </ul>
       </div>
     </nav>
 
-    
+    <a href="{% url 'fly'  %}">投稿してみる</a>
     {% block 'content' %}
     
     {% endblock %}
