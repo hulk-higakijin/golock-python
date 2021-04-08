@@ -15,7 +15,7 @@ def index(request):
   }
   return render(request, 'app/index.html', params)
 
-class NewPost(LoginRequiredMixin, View):
+class NewPost(View):
   def get(self, request, *args, **kwargs):
     form = PostForm(request.POST or None)
     return render(request, 'app/new.html', {'form': form})
