@@ -1,17 +1,11 @@
 {% extends 'app/base.html' %}
 
 {% block 'content' %}
-  <form method="post">
-    {% csrf_token %}
-    <div class="formpost">
-      {% render_field form.year class="form-control" placeholder="年号（半角数字）" %}
-    </div>
-    <div class="formpost">
-      {% render_field form.text class="form-control" placeholder="語呂合わせ（文）" %}
-    </div>
-    <div class="formpost">
-      {% render_field form.supplement class="form-control" placeholder="説明" %}
-    </div>
-    <button class='btn' type="submit">投稿</button>
-  </form>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">送信</button>
+
+</form>
+
 {% endblock %}
