@@ -25,12 +25,15 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'index' %}">Home</a>
           </li>
-          
+          <li class="nav-item active">
+            <a class="nav-link" href="#">管理者向けログイン</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'new' %}">Create</a>
+          </li>
         </ul>
       </div>
     </nav>
-
-    <a href="{% url 'new' %}">投稿してみる</a>
     {% block 'content' %}
     
     {% endblock %}

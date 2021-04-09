@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View,DetailView
 from .models import Post
 from .forms import PostForm
+# from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def welcome(request):
@@ -33,3 +34,21 @@ class NewPost(View):
 
     return render(request, 'app/new.html', {'form': form})
 
+class PostDetail(View):
+  def get(self, request, *args, **kwargs):
+    post_data = Post.objects.get(id=self.kwargs['pk'])
+    return render(request, 'app/detail.html', {
+      'post_data': post_data,
+    })
+  
+class PostDelete(View):
+  def get(self, request, *args, **kwargs):
+    post_data = Post.objects.get(id=self.kwargs['pk'])
+    return render(request, 'app/delete.html', {
+      'post_data': post_data
+    })
+  def post(self, request, *args, **kwargs):
+    post_data = Post.objects.get(id=self.kwargs['pk'])
+    post_data.delete()
+    return redirect('index')
+  

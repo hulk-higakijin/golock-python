@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block 'content' %}
+<h2 class="my-4">{{ post_data.year }}年</h2>
+<hr>
+<h5 class="my-4">{{ post_data.text }}</h5>
+<hr>
+<p>{{ post_data.supplement }}</p>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn-danger" type="submit">削除する</button>
+</form>
+{% endblock %}
