@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View,DetailView
 from .models import Post
 from .forms import PostForm
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def welcome(request):
