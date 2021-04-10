@@ -3,12 +3,12 @@
 {% block 'content' %}
 <h2 class="my-4">{{ post_data.year }}年</h2>
 <hr>
-<h5 class="my-6">{{ post_data.text }}</h5>
+<h5 class="my-4">{{ post_data.text }}</h5>
 <hr>
 <p>{{ post_data.supplement|linebreaksbr }}</p>
 <a href="{% url 'index'  %}">戻る</a>
 
-<a href="#">編集</a>
+<a href="{% url 'edit' post_data.id %}">編集</a>
 <a href="{% url 'delete' post_data.id %}">削除</a>
 
 
