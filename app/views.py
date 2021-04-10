@@ -42,7 +42,7 @@ class PostDetail(View):
       'post_data': post_data,
     })
   
-class PostEdit(LoginRequiredMixin, View):
+class PostEdit(View):
   def get(self, request, *args, **kwargs):
     post_data = Post.objects.get(id=self.kwargs['pk'])
     form = PostForm(
@@ -71,7 +71,7 @@ class PostEdit(LoginRequiredMixin, View):
     return render(request, 'app/form.html', {'form': form})
 
 
-class PostDelete(LoginRequiredMixin, View):
+class PostDelete(View):
   def get(self, request, *args, **kwargs):
     post_data = Post.objects.get(id=self.kwargs['pk'])
     return render(request, 'app/delete.html', {
