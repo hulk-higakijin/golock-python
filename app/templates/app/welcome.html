@@ -2,9 +2,12 @@
 
 
 {% block 'content' %}
-  <br>
+    <div>ゴーロックへようこそ。</div>
+    <div>思いついた語呂合わせを、みんなで共有しよう。</div>
+    <a href="{% url 'index'  %}" class="btn">始める</a>  
 
-  <div>ゴーロックへようこそ。</div>
-  <div>思いついた語呂合わせを、みんなで共有しよう。</div>
-  <a href="{% url 'index'  %}" class="btn">始める</a>  
+    <br>
+    <br>
+    <p>(adminにアクセスすることで、詳細画面・編集機能・削除機能を利用することができます</p>
+    <p>adminのユーザー名はabc、パスワード名は1234です。)</p>
 {% endblock %}
